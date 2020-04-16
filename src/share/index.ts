@@ -3,7 +3,7 @@ import { getMetadata } from '../metadata'
 const root = frameElement as HTMLIFrameElement
 const elCard = document.getElementById('card') as HTMLDivElement
 const elCardContent = document.getElementById('card-content') as HTMLDivElement
-const elCardContentInner = document.getElementById('card-content-inner') as HTMLDivElement
+// const elCardContentInner = document.getElementById('card-content-inner') as HTMLDivElement
 const elMetaTitle = document.getElementById('meta-title') as HTMLAnchorElement
 const elMetaUrl = document.getElementById('meta-url') as HTMLAnchorElement
 const elMetaDescription = document.getElementById('meta-description') as HTMLDivElement
@@ -67,12 +67,14 @@ if (url) {
       elMetaTitle.innerText = meta.title
       elMetaTitle.href = meta.url
     } else {
-      elMetaUrl.href = meta.url
       elMetaUrl.innerText = meta.url
+      elMetaUrl.href = meta.url
     }
 
-    elMetaDescription.innerText = (meta.description || '').substr(0, 140)
-    elCardContent.style.height = elCardContentInner.scrollHeight + 'px'
+    elMetaDescription.innerText = (meta.description || '')
+    // .substr(0, 140)
+    elCardContent.style.minHeight = 'auto'
+    // elCardContent.style.height = elCardContentInner.scrollHeight + 'px'
 
     setIframeSize()
   })()

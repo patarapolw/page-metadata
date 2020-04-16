@@ -34,7 +34,7 @@
 }
 
 .card-content {
-  height: 150px;
+  min-height: 150px;
   margin: 1em;
   margin-top: 0;
   font-family: 'Open Sans', sans-serif;

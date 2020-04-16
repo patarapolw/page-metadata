@@ -20,8 +20,8 @@ if (url) {
     elInput.value = url
     elOutput.style.display = 'block'
 
-    elSocialLink.src = `/share/index.html?${qs.stringify({ url })}`
-    elCodeIframe.innerHTML = `&lt;iframe src="https://patarapolw.github.io/page-metadata/share?${qs.stringify({ url })}" allowtransparency="true">&lt;/iframe>`
+    elSocialLink.src = `/share?${qs.stringify({ url })}`
+    elCodeIframe.innerHTML = `&lt;iframe src="https://page-metadata.netlify.app/share?${qs.stringify({ url })}" allowtransparency="true">&lt;/iframe>`
     hljs.highlightBlock(elCodeIframe)
 
     // elCodeApi.innerText = `https://page-metadata.now.sh/api/metadata?${qs.stringify({ url })}`

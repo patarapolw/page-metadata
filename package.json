@@ -12,13 +12,12 @@
   },
   "scripts": {
     "predeploy": "yarn local:build",
-    "deploy": "now",
+    "deploy": "netlify deploy",
     "dev": "concurrently yarn:dev:*",
-    "dev:now": "now dev",
+    "dev:server": "http-server public",
     "dev:parcel": "parcel watch -d public 'src/**/*.html'",
     "preinstall": "npx check-npm-yarn",
     "local:build": "parcel build -d public 'src/**/*.html'",
-    "start": "now dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
