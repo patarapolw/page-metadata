@@ -1,29 +1,11 @@
-import http from 'http'
-import https from 'https'
-
 import { NowRequest, NowResponse } from '@now/node'
+import axios from 'axios'
 
 // https://stackoverflow.com/questions/6287297/reading-content-from-url-with-node-js
 export async function get (url: string) {
-  return new Promise<string>((resolve, reject) => {
-    const client = url.startsWith('https') ? https : http
-
-    client.get(url, (resp) => {
-      let data = ''
-
-      // A chunk of data has been recieved.
-      resp.on('data', (chunk) => {
-        data += chunk
-      })
-
-      // The whole response has been received. Print out the result.
-      resp.on('end', () => {
-        resolve(data)
-      })
-    }).on('error', (err) => {
-      reject(err)
-    })
-  })
+  return (await axios.get(url, {
+    transformResponse: r => r
+  })).data
 }
 
 export default async function (req: NowRequest, res: NowResponse) {

@@ -1,0 +1,12 @@
+html {
+  background-color: aliceblue;
+}
+
+pre, code {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.text {
+  margin-top: 1em;
+}

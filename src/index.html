@@ -4,28 +4,56 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello Bulma!</title>
+
+  <title>Get Pictured Link and HTML metadata</title>
+  <meta name="description" content="Get page metadata and create a pictured link">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <main style="width: 100%;">
-    <div class="field has-addons">
-      <div class="control">
+  <main class="container" style="width: 100%; margin-top: 1em;">
+    <form class="field has-addons">
+      <div class="control is-expanded">
         <input class="input" type="text" placeholder="Get social link and page metadata" name="url">
       </div>
       <div class="control">
-        <a class="button is-info">
+        <button class="button is-info" type="submit">
           Search
-        </a>
+        </button>
+      </div>
+    </form>
+  </main>
+  <section id="output" class="section" style="display: none;">
+    <div class="columns">
+      <div class="column is-6" style="text-align: center;">
+        <iframe id="social-link" allowtransparency="true"></iframe>
+      </div>
+      <div class="column text content">
+        <p>To embed the link, use this code:</p>
+        <pre><code id="code-iframe" lang="javascript" class="language-javascript"></code></pre>
+        <p>You can provide options via <code>data-option</code> as JSON</p>
+        <ul>
+          <li>blur</li>
+          <li>top0</li>
+        </ul>
       </div>
     </div>
-  </main>
-  <section id="output" class="section" style="display: none; text-align: center;">
-    <iframe id="social-link"></iframe>
-    <pre id="metadata"></pre>
+    <div class="columns" style="flex-direction: row-reverse;">
+      <div class="column is-8">
+        <pre><code id="metadata" lang="json" class="language-json"></code></pre>
+      </div>
+      <div class="column text">
+        <p>To get the JSON based on <a href="https://github.com/mozilla/page-metadata-parser" target="_blank">
+          mozilla/page-metadata-parser
+        </a>, try sending <code>POST</code> request to the following link</p>
+        <code id="code-api"></code>
+      </div>
+    </div>
   </section>
+
+  <script src="main.ts"></script>
 </body>
 
 </html>
