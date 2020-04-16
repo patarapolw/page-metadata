@@ -1,36 +1,32 @@
 {
   "name": "page-metadata",
   "version": "1.0.0",
-  "description": "Get page metadata and create a pictured link",
   "private": true,
-  "scripts": {
-    "preinstall": "npx check-npm-yarn",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "now dev",
-    "local:build": "parcel build -d public 'src/**/*.html'",
-    "dev:parcel": "parcel watch -d public 'src/**/*.html'",
-    "dev:now": "now dev",
-    "dev": "concurrently yarn:dev:*",
-    "predeploy": "yarn local:build",
-    "deploy": "now"
-  },
+  "description": "Get page metadata and create a pictured link",
   "keywords": [],
+  "license": "ISC",
   "author": {
-    "email": "patarapolw@gmail.com",
     "name": "Pacharapol WIthayasakpunt",
+    "email": "patarapolw@gmail.com",
     "url": "https://polvcode.dev"
   },
-  "license": "ISC",
+  "scripts": {
+    "predeploy": "yarn local:build",
+    "deploy": "now",
+    "dev": "concurrently yarn:dev:*",
+    "dev:now": "now dev",
+    "dev:parcel": "parcel watch -d public 'src/**/*.html'",
+    "preinstall": "npx check-npm-yarn",
+    "local:build": "parcel build -d public 'src/**/*.html'",
+    "start": "now dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "@types/highlight.js": "^9.12.3",
-    "axios": "^0.19.2",
-    "domino": "^2.1.4",
-    "highlight.js": "^9.18.1",
-    "page-metadata-parser": "^1.1.4",
-    "query-string": "^6.12.1"
+    "axios": "^0.19.2"
   },
   "devDependencies": {
     "@now/node": "^1.5.1",
+    "@types/highlight.js": "^9.12.3",
     "@typescript-eslint/eslint-plugin": "^2.28.0",
     "@typescript-eslint/parser": "^2.28.0",
     "cssnano": "^4.1.10",
@@ -40,6 +36,9 @@
     "eslint-plugin-node": ">=9.1.0",
     "eslint-plugin-promise": ">=4.2.1",
     "eslint-plugin-standard": ">=4.0.0",
+    "highlight.js": "^9.18.1",
+    "page-metadata-parser": "^1.1.4",
+    "query-string": "^6.12.1",
     "typescript": "^3.8.3"
   }
 }

@@ -1,7 +1,9 @@
-import qs from 'query-string'
+import { getMetadata } from '../metadata'
 
 const root = frameElement as HTMLIFrameElement
 const elCard = document.getElementById('card') as HTMLDivElement
+const elCardContent = document.getElementById('card-content') as HTMLDivElement
+const elCardContentInner = document.getElementById('card-content-inner') as HTMLDivElement
 const elMetaTitle = document.getElementById('meta-title') as HTMLAnchorElement
 const elMetaUrl = document.getElementById('meta-url') as HTMLAnchorElement
 const elMetaDescription = document.getElementById('meta-description') as HTMLDivElement
@@ -18,9 +20,7 @@ if (root) {
 
 if (url) {
   (async () => {
-    const meta = await fetch(`/api/metadata?${qs.stringify({ url })}`, {
-      method: 'POST'
-    }).then(r => r.json())
+    const meta = await getMetadata(url)
 
     const imgEls: HTMLImageElement[] = []
 
@@ -72,6 +72,7 @@ if (url) {
     }
 
     elMetaDescription.innerText = (meta.description || '').substr(0, 140)
+    elCardContent.style.height = elCardContentInner.scrollHeight + 'px'
 
     setIframeSize()
   })()
